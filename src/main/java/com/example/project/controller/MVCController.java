@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -22,8 +23,9 @@ public class MVCController {
 	@Autowired
 	private EmailService emailService;
 
-	@RequestMapping("/home")
-	public String registerPage(Model model) {
+	@RequestMapping("/home/{role}")
+	public String homePage(@PathVariable("role") String role , Model model) {
+		model.addAttribute("role",role);
 		return "home";
 	}
 
@@ -62,11 +64,7 @@ public class MVCController {
 		}
 		UserModel user = userRepository.findByNameAndPwd(login.getUsername(), login.getPassword());
 		if (null != user) {
-			if (user.getRole().equalsIgnoreCase("Admin")) {
-				return "redirect:/userList";
-			} else {
-				return "redirect:/home";
-			}
+			return "redirect:/home/"+user.getRole();
 		} else {
 			return "/error";
 		}
@@ -92,7 +90,7 @@ public class MVCController {
 		}
 		System.out.println("success db " + us.getUserId());
 		try {
-		emailService.sendSimpleMessage("agrawalad7@gmail.com", "User Added", us.username+" registered.");
+		emailService.sendSimpleMessage("",us);
 		}catch(Exception e) {
 			System.out.print(e.getMessage());
 		}

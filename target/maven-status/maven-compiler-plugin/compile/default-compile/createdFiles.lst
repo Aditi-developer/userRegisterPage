@@ -1,0 +1,8 @@
+com/example/project/service/EmailService.class
+com/example/project/repository/UserRepository.class
+com/example/project/restcontroller/MVCRestController.class
+com/example/project/models/UserModel.class
+com/example/project/MvcProjectApplication.class
+com/example/project/serviceImpl/EmailServiceImpl.class
+com/example/project/controller/MVCController.class
+com/example/project/models/LoginModel.class

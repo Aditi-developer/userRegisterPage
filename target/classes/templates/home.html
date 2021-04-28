@@ -10,7 +10,10 @@
 <header>
     <nav>
         <ul id="menu">
+         <span th:if="${role} == Admin">
+             <li><a href="/userList">UserList</a></li></span>
             <li><a href="/logout">Logout</a></li>
+           
         </ul>
     </nav>
 </header>

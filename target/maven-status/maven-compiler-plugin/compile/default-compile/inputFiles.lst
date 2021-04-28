@@ -1,0 +1,8 @@
+/home/temp/Downloads/Projects/userRegisterPage/src/main/java/com/example/project/models/UserModel.java
+/home/temp/Downloads/Projects/userRegisterPage/src/main/java/com/example/project/controller/MVCController.java
+/home/temp/Downloads/Projects/userRegisterPage/src/main/java/com/example/project/models/LoginModel.java
+/home/temp/Downloads/Projects/userRegisterPage/src/main/java/com/example/project/restcontroller/MVCRestController.java
+/home/temp/Downloads/Projects/userRegisterPage/src/main/java/com/example/project/repository/UserRepository.java
+/home/temp/Downloads/Projects/userRegisterPage/src/main/java/com/example/project/serviceImpl/EmailServiceImpl.java
+/home/temp/Downloads/Projects/userRegisterPage/src/main/java/com/example/project/MvcProjectApplication.java
+/home/temp/Downloads/Projects/userRegisterPage/src/main/java/com/example/project/service/EmailService.java
