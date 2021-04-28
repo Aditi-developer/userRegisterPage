@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>MVC Project</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<!-- CSS links -->
+<link rel="stylesheet" href="/resources/css/index.css">
+
+</head>
+
+<body>
+	<div>
+		<table id="users">
+			<tr>
+				<th>User Id</th>
+				<th>User Name</th>
+				<th>User Role</th>
+			</tr>
+			<tr th:each="user: ${userList}">
+				<td th:text="${user.userId}" />
+				<td th:text="${user.username}" />
+				<td th:text="${user.role}" />
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
