@@ -14,7 +14,6 @@ import com.example.project.models.LoginModel;
 import com.example.project.models.UserModel;
 import com.example.project.repository.UserRepository;
 import com.example.project.service.EmailService;
-import com.example.project.serviceImpl.EmailServiceImpl;
 
 @Controller
 public class MVCController {
@@ -38,7 +37,7 @@ public class MVCController {
 
 	@RequestMapping(value={"/","/register"})
 	public String registerPage(@ModelAttribute("register") UserModel userModel, Model model) {
-		return "/register";
+		return "register";
 	}
 
 	@RequestMapping("/login")
@@ -50,6 +49,8 @@ public class MVCController {
 	public String logoutPage(Model model) {
 		return "logout";
 	}
+	
+	
 	
 	@PostMapping("/login")
 	public String loginPage(@ModelAttribute("login") LoginModel login, BindingResult bindingResult) {
@@ -67,8 +68,7 @@ public class MVCController {
 				return "redirect:/home";
 			}
 		} else {
-			System.out.println("Credential Not Correct.");
-			return "/login";
+			return "/error";
 		}
 	}
 
@@ -81,7 +81,7 @@ public class MVCController {
 			return "/";
 		}
 		UserModel us = null;
-		if (null != register.mobileNumber && register.mobileNumber.isEmpty() && null != register.companyName
+		if (null != register.mobileNumber && !register.mobileNumber.isEmpty() && null != register.companyName
 				&& !register.companyName.isEmpty()) {
 			us = userRepository.save(new UserModel(register.username, register.getPassword(), register.firstname,
 					register.lastname, register.gender, register.date_of_birth, register.country, register.zipcode,
@@ -92,7 +92,11 @@ public class MVCController {
 					register.email, "Public User"));
 		}
 		System.out.println("success db " + us.getUserId());
+		try {
 		emailService.sendSimpleMessage("agrawalad7@gmail.com", "User Added", us.username+" registered.");
-		return "/login";
+		}catch(Exception e) {
+			System.out.print(e.getMessage());
+		}
+		return "/register";
 	}
 }

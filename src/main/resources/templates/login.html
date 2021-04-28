@@ -2,9 +2,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<!-- CSS links -->
+<link rel="stylesheet" href="/resources/css/index.css">
 </head>
 <body>
-	<div>
+<header>
+    <nav>
+        <ul id="menu">
+            <li><a href="/register">Register</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+	<div id="content">
 		<form id="loginForm" action="#" th:action="@{/login}" th:object="${login}"
 			method="post">
 			<h1>Login page</h1>
@@ -21,5 +31,6 @@
 			<input type="submit" value="LOGIN">
 		</form>
 	</div>
+</main>
 </body>
 </html>

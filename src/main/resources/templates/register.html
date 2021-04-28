@@ -2,75 +2,100 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!-- CSS links -->
+<link rel="stylesheet" href="/resources/css/index.css">
 </head>
 <body>
-<div>
-		<form id="registerForm" action="#" th:action="@{/register}"
-			th:object="${register}" method="post">
-			<h1>Registration page</h1>
-    <p style = "color:black;">Please enter your details correctly to register yourself. For PCos and Critics, please enter your phone number
-    and company name. This will be verified by our admin. You will receive an email of confirmation if your details
-    are correct.</p>
-			<label for="username">Username</label> 
-			<input type="text" id="username"
-				th:field="*{username}" placeholder="Username" value="" required>
-			<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Failed</p>
+	<header>
+		<nav>
+			<ul id="menu">
+				<li><a href="/login">Login</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<div id="content">
+			<form id="registerForm" action="#" th:action="@{/register}"
+				th:object="${register}" method="post">
+				<h1>Registration page</h1>
+				<p style="color: black;">Please enter your details correctly to
+					register yourself. For PCos and Critics, please enter your phone
+					number and company name. This will be verified by our admin. You
+					will receive an email of confirmation if your details are correct.</p>
+				<label for="username">Username</label> <input type="text"
+					id="username" th:field="*{username}" placeholder="Username"
+					value="" required>
+				<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Failed</p>
 
-<label for="password">Password</label> 
-			<input type="password" id="password"
-				th:field="*{password}" placeholder="Password" value="" required>
-			<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Failed</p>
-<label for="repassword">Re-Enter Password</label> 
-			<input type="password" id="repassword" placeholder="Re-Enter Password" value="" required>
+				<label for="password">Password</label> <input type="password"
+					id="password" th:field="*{password}" placeholder="Password"
+					value="" required>
+				<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Failed</p>
+				<label for="repassword">Re-Enter Password</label> <input
+					type="password" id="repassword" placeholder="Re-Enter Password"
+					value="" required> <label for="firstname">FirstName</label>
+				<input type="text" id="firstname" th:field="*{firstname}"
+					placeholder="Firstname" value="" required>
+				<p th:if="${#fields.hasErrors('firstname')}"
+					th:errors="*{firstname}">Failed</p>
 
-	<label for="firstname">FirstName</label> 
-			<input type="text" id="firstname"
-				th:field="*{firstname}" placeholder="Firstname" value="" required>
-			<p th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}">Failed</p>
-	
-	<label for="lastname">Lastname</label> 
-			<input type="text" id="lastname"
-				th:field="*{lastname}" placeholder="Lastname" value="" required>
-			<p th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}">Failed</p>
-		
-		<label for="gender">Gender(Please enter M for Male and F for Female)</label> 
+				<label for="lastname">Lastname</label> <input type="text"
+					id="lastname" th:field="*{lastname}" placeholder="Lastname"
+					value="" required>
+				<p th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}">Failed</p>
+
+				<label>Gender</label> <label style="margin-right: 10px;"
+					class="radio-inline"> <input style="margin-left: 10px;"
+					type="radio" id="gender" name="gender" value="M">M
+				</label> <label style="margin-left: 10px;" class="radio-inline"> <input
+					style="margin-left: 10px;" type="radio" id="gender" name="gender"
+					value="F">F
+				</label> <br>
+				<!--   <label for="gender">Gender(Please enter M for Male and F for Female)</label> 
 			<input type="text" id="gender"
 				th:field="*{gender}" placeholder="Gender" value="" required>
-			<p th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}">Failed</p>
-		
-		<label for="country">Country</label> 
-			<input type="text" id="country"
-				th:field="*{country}" placeholder="Country" value="" required>
-			<p th:if="${#fields.hasErrors('country')}" th:errors="*{country}">Failed</p>
-		
-		<label for="zipcode">Zipcode</label> 
-			<input type="text" id="zipcode"
-				th:field="*{zipcode}" placeholder="Zipcode" value="" required>
-			<p th:if="${#fields.hasErrors('zipcode')}" th:errors="*{zipcode}">Failed</p>
-		
-		<label for="date_of_birth">Date Of Birth</label> 
-			<input type="date" id="date_of_birth"
-				th:field="*{date_of_birth}" placeholder="Date Of Birth" value="" required>
-			<p th:if="${#fields.hasErrors('date_of_birth')}" th:errors="*{date_of_birth}">Failed</p>
-		
-		<label for="email">Email</label> 
-			<input type="email" id="email"
-				th:field="*{email}" placeholder="Email" value="" required>
-			<p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Failed</p>
-		
-		<label for="mobileNumber">Mobile Number</label> 
-			<input type="text" id="mobileNumber"
-				th:field="*{mobileNumber}" placeholder="Mobile Number" value="">
-			<p th:if="${#fields.hasErrors('mobileNumber')}" th:errors="*{mobileNumber}">Failed</p>
-		
-		<label for="companyName">Company Name</label> 
-			<input type="text" id="companyName"
-				th:field="*{companyName}" placeholder="Company Name" value="">
-			<p th:if="${#fields.hasErrors('companyName')}" th:errors="*{companyName}">Failed</p>
-		
-			<input type="submit" value="Register">
-		</form>
-	</div>
+			<p th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}">Failed</p>-->
+
+				<label for="country">Country</label> <input type="text" id="country"
+					th:field="*{country}" placeholder="Country" value="" required>
+				<p th:if="${#fields.hasErrors('country')}" th:errors="*{country}">Failed</p>
+
+				<label for="zipcode">Zipcode</label> <input type="text" id="zipcode"
+					th:field="*{zipcode}" placeholder="Zipcode" value="" required>
+				<p th:if="${#fields.hasErrors('zipcode')}" th:errors="*{zipcode}">Failed</p>
+
+				<label for="date_of_birth">Date Of Birth</label> <input type="date"
+					id="date_of_birth" th:field="*{date_of_birth}"
+					placeholder="Date Of Birth" value="" required>
+				<p th:if="${#fields.hasErrors('date_of_birth')}"
+					th:errors="*{date_of_birth}">Failed</p>
+
+				<label for="email">Email</label> <input type="email" id="email"
+					th:field="*{email}" placeholder="Email" value="" required>
+				<p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Failed</p>
+
+				<label for="mobileNumber">Mobile Number</label> <input type="text"
+					id="mobileNumber" th:field="*{mobileNumber}"
+					placeholder="Mobile Number" value="">
+				<p th:if="${#fields.hasErrors('mobileNumber')}"
+					th:errors="*{mobileNumber}">Failed</p>
+
+				<label for="companyName">Company Name</label> <input type="text"
+					id="companyName" th:field="*{companyName}"
+					placeholder="Company Name" value="">
+				<p th:if="${#fields.hasErrors('companyName')}"
+					th:errors="*{companyName}">Failed</p>
+
+				<input type="submit" value="Register">
+			</form>
+		</div>
+	</main>
 </body>
 </html>
 
