@@ -74,7 +74,6 @@ public class MVCController {
 
 	@PostMapping("/register")
 	public String register(@ModelAttribute("register") UserModel register, BindingResult bindingResult) {
-
 		System.out.println(register.toString());
 		if (bindingResult.hasErrors()) {
 			System.out.println("Errors found");
@@ -97,6 +96,6 @@ public class MVCController {
 		}catch(Exception e) {
 			System.out.print(e.getMessage());
 		}
-		return "/register";
+		return "redirect:/login";
 	}
 }
